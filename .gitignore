@@ -1,0 +1,7 @@
+data
+.ipynb_checkpoints
+__pycache__
+rivia-env/
+data/final_output.txt
+data/output.txt
+static/audio

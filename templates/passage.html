@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wiki-passage</title>
+    <!-- <script src="https://kit.fontawesome.com/3da45b9264.js" crossorigin="anonymous"></script> -->
+    <link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="https://svakulenko.ai.wu.ac.at/tableqastatic/style.css" rel="stylesheet"> -->
+    <link href="static/style.css" rel="stylesheet">
+    <link href="static/chat.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inknut Antiqua' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- <script src="https://svakulenko.ai.wu.ac.at/tableqastatic/script.js"></script> -->
+    
+    <!-- <script async defer src="https://buttons.github.io/buttons.js"></script> -->
+</head>
+
+<body class="bodyindex">
+    <script>
+        window.onload = function() {
+            var particles = Particles.init({
+            selector: '.background',
+            maxParticles: 100,
+            color: ['#DA0463', '#404B69', '#DBEDF3','#4286f4','#ffffff'],
+            connectParticles: true,
+            responsive: [{
+                breakpoint: 800,
+                options: {
+                    color: '#00C9B1',
+                    maxParticles: 80,
+                connectParticles: false
+                }
+            }]
+        });
+    };
+
+    </script>
+<h1 class="text-center app-header" style="font-family:Inknut Antiqua;font-size: 55px;font-weight: 500;color:white;">Wiki-passage</h2>
+<div style="overflow: auto;">
+
+    <div class="split left">
+        <h3 align="center" class='section-title' style="position: relative;">Data</h3>
+        <div id="drop-area">
+                <!-- <label for="fileUpload" class="custom-file-upload">
+                    <i class="fa fa-cloud-upload"></i> Upload
+                </label> -->
+            <center>
+              <input type="text"  id="sitetext" placeholder="Add topic here" style="box-sizing: border-box;font-size: 20px;"/>
+            </center>
+              <script src="../static/passage.js"></script>
+        </div>
+        <div id="tabledis" class="centered"></div>
+    </div>
+
+
+
+    <div class="split right" id ='splitright'>
+        <h3 align="center" class='section-title' style="position: relative;">Chat</h3>
+        <div class='chatwin'>
+            <div id="chatbot" >
+            </div>
+        </div>    
+    
+        <br><br>
+
+        <div id="chat1">
+            <input type="text" id="inputbox" placeholder="Type here..." >
+            <button class="btn btn-primary" id="recordButton" style="display: none;"> 
+                <i class="fa fa-microphone"></i>
+            </button>
+            <button class="btn btn-primary" id="stopButton" style="display: none;"> 
+                <i class="fa fa-stop"></i>
+            </button>
+            <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+            <script type="text/javascript" src="../static/chat.js"></script>
+        </div>
+    </div>
+</div>
+<br><br>
+<div id="chat3"></div><br><br>
+<canvas class="background"></canvas>
+<script src="../static/particles.js/dist/particles.js"></script>
+</body>
+</html>

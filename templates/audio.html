@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Audio Test</title>
+	<script src="https://kit.fontawesome.com/3da45b9264.js" crossorigin="anonymous"></script>
+	<!-- <script type="text/javascript" src="../static/fontawesome-free-5.13.0-web/js/all.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/fontawesome-free-5.13.0-web/css/all.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="../static/transform.css"> -->
+	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/transform.css') }}"> -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+
+<button class="btn btn-primary" id="recordButton"> 
+<i id="play" class="fa fa-microphone"></i><p id="btnText">Record</p>
+</button>
+<button class="btn btn-primary" id="stopButton" style="display: none;"> 
+<i id="play" class="fa fa-stop"></i><p id="btnText">Stop</p>
+</button>
+
+<div id="audbox">
+	<div id="audque"></div>
+	<div id="audres"></div>
+</div>
+
+<p id="response"></p><br>	
+
+<div id="drop-area">
+  <form class="my-form">
+    <p>Upload multiple files with the file dialog or by dragging and dropping images onto the dashed region</p>
+    <input type="file" id="fileElem" accept=".csv, .txt, .pdf" onchange="handleFiles(this.files)">
+    <label class="button" for="fileElem">Select some files</label>
+  </form>
+</div>
+
+<script type="text/javascript">
+  let dropArea = document.getElementById('drop-area')
+  ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, preventDefaults, false)
+  })
+
+  function preventDefaults (e) {
+    e.preventDefault()
+    e.stopPropagation()
+  }
+
+  ;['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, highlight, false)
+  })
+
+  ;['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, unhighlight, false)
+  })
+
+  function highlight(e) {
+    dropArea.classList.add('highlight')
+  }
+
+  function unhighlight(e) {
+    dropArea.classList.remove('highlight')
+  }
+
+  dropArea.addEventListener('drop', handleDrop, false)
+
+  function handleDrop(e) {
+    let dt = e.dataTransfer
+    let files = dt.files
+
+    handleFiles(files)
+  }
+
+
+</script>
+
+<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+<script type="text/javascript" src="../static/audio.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+    <html>
+        <head>
+            <title>
+                Rivia-Home
+            </title>
+            <link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+            <!-- <link href="https://svakulenko.ai.wu.ac.at/tableqastatic/style.css" rel="stylesheet"> -->
+            <link href="static/stylehome.css" rel="stylesheet">
+            <link href="static/chat.css" rel="stylesheet">
+            <link href="assets/css/responsive.css" rel="stylesheet">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet" type="text/css">
+            <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+            <link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
+            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        </head>
+
+        <body>
+
+            <!--=====> HEADER AREA =====-->
+            <header class="navbar custom-navbar navbar-fixed-top">
+                <div class=" w3-top">
+                    <div class=" w3-bar" id="myNavbar">
+                            <nav class=" main-menu">
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav"> <!-- main menu-->
+                                    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+                                        <i class="fa fa-bars"></i>
+                                    </a>
+                                    <li class="active w3-bar-item w3-button"><a class="smoth-scroll theme-color" href="#home">Home</a></li>
+                                    <li class="w3-bar-item w3-button w3-hide-small"><a class="smoth-scroll theme-color" href="#info">Information </a></li>
+                                </ul>
+                            </div>
+                            </nav>
+                    </div><!--/.row-->
+                </div><!--/.container-->
+            </header>
+            <!--===== END HEADER AREA ======-->
+
+            <!--======= WELCOME AREA =======-->
+            <div class="home" id="home">
+                <div class="content">
+                    
+                    <h1 class="text-center app-header" style="color:rgb(255,255,255);font-size:95px;font-weight: 700;font-family:Cherry Swash;">Rivia</h1>                    
+                    <h3 class="w3-opacity w3-text-white text-center"><i>Attention you must have!!!</i></h3>
+                    <br><br><br>
+                    <div class="w3-center">
+                        <div class="w3-bar">
+                            <button type="button" class="btn-homepage w3-ripple" onclick="window.location.href='{{ url_for( 'home' ) }}'" class="btn btn-primary">QA on Custom Data</button>
+                            <button type="button" class="btn-homepage w3-ripple" onclick="window.location.href='{{ url_for( 'wikiqa' ) }}'" class="btn btn-primary">QA on Wikipedia-Table</button>
+                            <button type="button" class="btn-homepage w3-ripple" onclick="window.location.href='{{ url_for( 'passage' ) }}'" class="btn btn-primary">QA on Wikipedia-Passage</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="area" >
+                    <ul class="circles">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                    </ul>
+                </div >
+            </div>
+            <!--===== END WELCOME AREA =====-->
+
+            <!--===== INFORMATION AREA =====-->
+            <section id="info" class="w3-container w3-content" style="max-width:600px">
+                <br><br><br><br>
+                <h1 class="w3-center w3-xxlarge">Information</h1>
+                <hr class="accessory">
+                <p>&emsp;&emsp;Rivia is a automated Deep Learning based Question Answering system. It will answer your question on the data (table or text) you provide.  </p>
+
+                <h3 class="w3-center">Instructions</h3>
+
+                <h4>We've three demos for you</h4>
+
+                <ol>
+                    <li>
+                        <b>Question Answering on Text and Table </b>
+                        <p>
+                            Just check this QA system on both Text and Table. Upload a CSV or TXT for table and text respectively (We'll add support for other file extensions like PDF and DOCX). If you don't have any data you can choose the default data from the drop down menu. 
+                        </p>
+                        <p>
+                            Now, write or speak the question by providing the input on the right pane.
+                        </p>
+                    </li>
+                    <li>
+                        <b>Automatic Table fetch from Wikipedia </b>
+                        <p>
+                            This is a demonstration for QA systems on Wikipedia tables. For now we have kept the table fixed. <a href="https://en.wikipedia.org/wiki/COVID-19_pandemic_by_country_and_territory#covid19-container"> Link to table. </a>
+
+                            This will fetch latest COVID-19 cases by country and you can ask questions related to that. For instance, "How many countries have at least 5000 deaths?" or "What are the active cases in Canada right now?" etc.
+                        </p>
+                    </li>
+                    <li>
+                        <b>Automatic Article fetching from Wikipedia </b>
+                        <p>
+                            In this demo you'll see a text box where you can insert topics and the system will fetch its introductory paragraph (We'll provide entire wikipedia QA soon). You can try inserting topics like "Conversational AI", "covid-19", "Sachin Tendulkar" or "India". In some cases you won't see any data return because our system might be unable to fetch that page.  
+                        </p>
+                        <p>
+                            Ask questions from the passage which you can see on the left pane. 
+                        </p>
+                    </li>
+                    
+                </ol>
+                <br>
+            </section>
+            
+            <!--===== END INFORMATION AREA =====-->
+
+
+            <script>
+
+                // Change style of navbar on scroll
+                window.onscroll = function() {myFunction()};
+                function myFunction() {
+                    var navbar = document.getElementById("myNavbar");
+                    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-black";
+                        
+                    } else {
+                        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-black", "");
+                    }
+                }
+                
+                // Used to toggle the menu on small screens when clicking on the menu button
+                function toggleFunction() {
+                    var x = document.getElementById("navDemo");
+                    if (x.className.indexOf("w3-show") == -1) {
+                        x.className += " w3-show";
+                    } else {
+                        x.className = x.className.replace(" w3-show", "");
+                    }
+                }
+                </script>
+        </body>
+    </html>
